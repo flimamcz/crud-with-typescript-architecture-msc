@@ -9,7 +9,7 @@ export default class ProductController {
   }
 
   static async getAll(_req: Request, res: Response): Promise<Response> {
-    const allProducts = await ProductServices.getAll;
+    const allProducts = await ProductServices.getAll();
     return res.status(200).json(allProducts);
   }
 }
