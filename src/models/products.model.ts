@@ -3,7 +3,7 @@ import { Iproduct, IproductCreated } from '../interfaces/Product.interface';
 import connection from './connection';
 
 export default class Product {
-  static async insert(product: Iproduct): Promise<IproductCreated> {
+  static async create(product: Iproduct): Promise<IproductCreated> {
     const columns = Object.keys(product).join(', ');
 
     const placeholders = Object.keys(product)
