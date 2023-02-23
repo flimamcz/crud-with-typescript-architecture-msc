@@ -6,7 +6,7 @@ services:
     # Imagem base do container
     image: node:16
     # Nome do container para facilitar execução
-    container_name: trybesmith
+    container_name: nome-do-seu-container
     # Mesmo que `docker run -t`
     tty: true
     # Mesmo que `docker run -i`
@@ -33,14 +33,14 @@ services:
       - 3000:3000
     # Configura as variáveis de ambiente dentro do container
     environment:
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
-      MYSQL_HOST: db
-      JWT_SECRET: secret
+      MYSQL_USER: user-do-seu-db
+      MYSQL_PASSWORD: senha-do-seu-db
+      MYSQL_HOST: seu-host
+      JWT_SECRET: sua-chave-jwt-secret
 
   # Serviço que irá rodar o banco de dados
   db:
-    container_name: trybesmith_db
+    container_name: nome-do-seu-db
     image: mysql:8.0.21
     restart: always
     # Lista de portas mapeadas de dentro para fora do container
@@ -50,14 +50,14 @@ services:
       - 3306:3306
       - 33060:33060
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: senha-do-seu-db
 
 # Lista de redes que os containeres irão utilizar
 networks:
   # Rede padrão, criada automaticamente
   default:
     # Dá um nome específico à rede padrão
-    name: trybesmith_net
+    name: nome-da-sua-rede
 
 # As chaves `tty`, `stdin_open` e `command` fazem com que o container fique
 # rodando em segundo plano, bem como tornam possível o uso do comando
